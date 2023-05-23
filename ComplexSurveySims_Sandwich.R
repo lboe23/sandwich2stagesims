@@ -239,9 +239,7 @@ for(i in idx){ #i=1
   #predict xhat and update samp design
   sampdesign <- update(sampdesign,xhat = predict(cfit,newdata=sampdesign$variables))
   N_alpha<-length(cfit$coefficients)
-  
-  sampdesign<-subset(sampdesign,V==1)
-  
+    
   #Now get regression coefficients for true, naive and RC model
   tfit<-svyglm(y ~ X1+X2 ,design=sampdesign,family=quasibinomial())
   nfit<-svyglm(y ~ xstar+X2 ,design=sampdesign,family=quasibinomial())
